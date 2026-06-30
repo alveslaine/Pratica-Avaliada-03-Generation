@@ -1,20 +1,14 @@
 package exercicio_03;
 
-public class NotificacaoSMS extends Notificacao{
-	String telefone;
+public class NotificacaoSMS extends Notificacao {
 
-	public NotificacaoSMS(String destinatario, String telefone) {
-		super(destinatario);
-		this.telefone = telefone;
-	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	@Override
-	public void enviar(String mensagem) {
-		
-	}
+    public NotificacaoSMS(String destinatario) {
+        super(destinatario);
+    }
+
+    @Override
+    public void enviar(String mensagem) {
+        Validacao.validarMensagem(mensagem);
+        System.out.println("Enviando SMS para "+ getDestinatario() + ": " + mensagem);
+    }
 }
